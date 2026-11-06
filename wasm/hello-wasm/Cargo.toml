@@ -1,0 +1,13 @@
+[package]
+name = "hello-wasm"
+version = "0.1.0"
+edition = "2024"
+
+[lib]
+# 'cdylib' tells Rust to compile a C-compatible dynamic system library, 
+# which is required for WebAssembly output.
+crate-type = ["cdylib"]
+
+[dependencies]
+# Macro generating the TS 'glue code'
+wasm-bindgen = "0.2"

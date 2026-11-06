@@ -4,7 +4,10 @@
   "description": "A demo of a calculation of PI using the Monte Carlo method. The project compares the code running on rust compiled with wasm and ts.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build:hello": "cd wasm/hello-wasm && wasm-pack build --target web",
+    "build:benchmark": "cd wasm/pi-benchmark && wasm-pack build --target web",
+    "build:wasm": "npm run build:hello && npm run build:benchmark",
+    "dev": "npm run build:wasm && vite"
   },
   "keywords": [],
   "author": "",
@@ -12,6 +15,7 @@
   "type": "commonjs",
   "devDependencies": {
     "@types/node": "^26.6.6",
-    "typescript": "^7.0.2"
+    "typescript": "^7.0.2",
+    "vite": "^8.3.6"
   }
 }
