@@ -1,34 +1,91 @@
 # wasm-demo
 
-A demo of a calculation of PI using the Monte Carlo method. The project compares the code running on rust compiled with wasm and ts.
+A performance demonstration calculating Pi using the Monte Carlo method. This project benchmarks the execution speed of WebAssembly (compiled from Rust) against native TypeScript running in the browser.
 
-## dependencies
+## Dependencies
 
-## How to run the project
+To build and run this project, you will need the following toolchains installed:
 
-## Sources used for the project
+- **Node.js & npm**: For the frontend Vite server and TypeScript dependencies.
+- **Rust & Cargo**: For writing and compiling the backend logic ([Install rustup](https://rustup.rs/)).
+- **wasm-pack**: For packaging the Rust code into a WebAssembly/npm module.
+  ```bash
+  cargo install wasm-pack
+  ```
 
-[wasm documentation](https://webassembly.org/)
-[rust with wasm exemple](https://developer.mozilla.org/en-US/docs/WebAssembly/Guides/Rust_to_Wasm)
-[monte carlo exemple method](https://www.geeksforgeeks.org/dsa/estimating-value-pi-using-monte-carlo/)
+## How to Run the Project
 
-## How to make a new wasm rust project:
+1. **Install frontend dependencies:**
 
-- cargo new --lib [project_name]
-  -> creates a base project in /[project_name] with a Cargo.toml and src/lib.rs
+   ```bash
+   npm install
+   ```
 
-- cargo install wasm-pack
-  -> installs wasm-pack on your machine
+2. **Run and build the project:**
+   ```bash
+   npm run dev
+   ```
+   this compiles the rust code to webassembly and runs vite
 
-- Add in Cargo.toml:
-  [lib]
-  crate-type = ["cdylib"]
+**Compile rust individually:**
 
-  [dependencies]
-  wasm-bindgen = "0.2"
+```bash
+  npm run build:hello
+```
 
-- include
-  use wasm_bindgen::prelude::\*;
-  in your rust file
-- use #[wasm_bindgen]
-  from the import on top of the function that you want to compile to wasm (and ts/js)
+compiles the hello-wasm rust code into /wasm/hello-wasm/pkg
+
+```bash
+npm run build:benchmark
+```
+
+compiles the pi benchmark rust code into /wasm/pi-benchmark/pkg
+
+```bash
+npm run build:wasm
+```
+
+runs both commands above
+
+## Sources Used for the Project
+
+- [WebAssembly Official Documentation](https://webassembly.org/)
+- [MDN Guide: Compiling from Rust to WebAssembly](https://developer.mozilla.org/en-US/docs/WebAssembly/Guides/Rust_to_Wasm)
+- [Estimating the Value of Pi using Monte Carlo (GeeksforGeeks)](https://www.geeksforgeeks.org/dsa/estimating-value-pi-using-monte-carlo/)
+
+---
+
+## Reference: How to make a new Wasm Rust project
+
+If you want to create a new Rust-to-WebAssembly package from scratch, follow these steps:
+
+1. **Initialize a new library crate:**
+   Creates a base project with a `Cargo.toml` and `src/lib.rs`.
+
+   ```bash
+   cargo new --lib project_name
+   ```
+
+2. **Configure `Cargo.toml`:**
+   Add the following lines to tell Rust to compile a dynamic library and include the bindings generator:
+
+   ```toml
+   [lib]
+   crate-type = ["cdylib"]
+
+   [dependencies]
+   wasm-bindgen = "0.2"
+   ```
+
+3. **Write the Rust code:**
+   In your `src/lib.rs`, include the prelude import:
+   ```rust
+   use wasm_bindgen::prelude::*;
+   ```
+   Then, add the `#[wasm_bindgen]` macro directly above any function you want to expose to TypeScript/JavaScript:
+   ```rust
+   #[wasm_bindgen]
+   pub fn my_function() {
+       // ...
+   }
+   ```
