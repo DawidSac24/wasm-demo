@@ -1,1 +1,18 @@
-node_modules
+# Dependency directories
+node_modules/
+
+# Wasm-pack output directories
+wasm/hello-wasm/pkg/
+wasm/pi-bench/pkg/
+target/
+
+#Build artifacts and caches
+dist/
+.vite/
+*.wasm
+*.js.map
+
+# IDE / OS specific files
+.vscode/
+.idea/
+.DS_Store
