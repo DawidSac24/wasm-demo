@@ -7,12 +7,13 @@
     "build:hello": "cd wasm/hello-wasm && wasm-pack build --target web",
     "build:benchmark": "cd wasm/pi-benchmark && wasm-pack build --target web",
     "build:wasm": "npm run build:hello && npm run build:benchmark",
-    "dev": "npm run build:wasm && vite"
+    "dev": "npm run build:wasm && vite",
+    "benchmark": "node src/cli.ts"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "type": "commonjs",
+  "type": "module",
   "devDependencies": {
     "@types/node": "^26.6.6",
     "typescript": "^7.0.2",

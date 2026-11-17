@@ -1,5 +1,5 @@
-import init, { add, hello } from "../wasm/hello-wasm/pkg";
-import { runBenchmark } from "./benchmark";
+import init, { add, hello } from "../wasm/hello-wasm/pkg/hello_wasm.js";
+import { runBenchmark } from "./benchmark.js";
 
 async function runDemo() {
   console.log("*** Hellow WebAssembly ***");
@@ -14,8 +14,6 @@ async function runDemo() {
 
   document.body.innerHTML += `<p><strong>${greeting}</strong></p>`;
   document.body.innerHTML += `<p>10 + 32 = ${sum}</p>`;
-
-  runBenchmark(9);
 }
 
 runDemo();

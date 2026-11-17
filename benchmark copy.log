@@ -1,0 +1,58 @@
+*** WebAssembly vs TypeScript Performance Benchmark ***
+
+--- Running test with 10 iterations ---
+TypeScript : Pi = 2.8 | Time = 0.06 ms
+Rust (Wasm): Pi = 3.2 | Time = 0.08 ms
+Result     : WebAssembly was 0.72x faster!
+
+--- Running test with 100 iterations ---
+TypeScript : Pi = 3.2 | Time = 0.02 ms
+Rust (Wasm): Pi = 3 | Time = 0.00 ms
+Result     : WebAssembly was 3.48x faster!
+
+--- Running test with 1,000 iterations ---
+TypeScript : Pi = 3.196 | Time = 0.18 ms
+Rust (Wasm): Pi = 3.196 | Time = 0.02 ms
+Result     : WebAssembly was 9.70x faster!
+
+--- Running test with 10,000 iterations ---
+TypeScript : Pi = 3.1516 | Time = 0.53 ms
+Rust (Wasm): Pi = 3.1564 | Time = 0.14 ms
+Result     : WebAssembly was 3.71x faster!
+
+--- Running test with 100,000 iterations ---
+TypeScript : Pi = 3.14712 | Time = 3.16 ms
+Rust (Wasm): Pi = 3.14908 | Time = 1.78 ms
+Result     : WebAssembly was 1.77x faster!
+
+--- Running test with 1,000,000 iterations ---
+TypeScript : Pi = 3.142948 | Time = 14.70 ms
+Rust (Wasm): Pi = 3.143964 | Time = 6.88 ms
+Result     : WebAssembly was 2.14x faster!
+
+--- Running test with 10,000,000 iterations ---
+TypeScript : Pi = 3.1427888 | Time = 164.27 ms
+Rust (Wasm): Pi = 3.1412804 | Time = 70.50 ms
+Result     : WebAssembly was 2.33x faster!
+
+--- Running test with 100,000,000 iterations ---
+TypeScript : Pi = 3.14174832 | Time = 1458.00 ms
+Rust (Wasm): Pi = 3.14148688 | Time = 691.01 ms
+Result     : WebAssembly was 2.11x faster!
+
+--- Running test with 1,000,000,000 iterations ---
+TypeScript : Pi = 3.141692056 | Time = 14711.63 ms
+Rust (Wasm): Pi = 3.141726732 | Time = 6936.35 ms
+Result     : WebAssembly was 2.12x faster!
+
+--- Running test with 10,000,000,000 iterations ---
+TypeScript : Pi = 3.1415910308 | Time = 158561.03 ms
+Rust (Wasm): Pi = 3.141683200556892 | Time = 9760.58 ms
+Result     : WebAssembly was 16.25x faster!
+
+--- Running test with 100,000,000,000 iterations ---
+TypeScript : Pi = 3.14159714128 | Time = 1582413.86 ms
+Rust (Wasm): Pi = 3.1417045522382248 | Time = 8411.52 ms
+Result     : WebAssembly was 188.12x faster!
+
+--- Running test with 1,000,000,000,000 iterations ---

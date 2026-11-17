@@ -1,11 +1,16 @@
-import init, { rs_calculate_pi } from "../wasm/pi-benchmark/pkg";
+import init, {
+  rs_calculate_pi,
+} from "../wasm/pi-benchmark/pkg/pi_benchmark.js";
 
-export async function runBenchmark(powerSteps: number) {
+export async function runBenchmark(powerSteps: number = 8) {
   console.log("*** WebAssembly vs TypeScript Performance Benchmark ***");
 
   await init();
 
   for (let power = 1; power <= powerSteps; power++) {
+    // Yield to the event loop between steps so the browser UI does not freeze
+    await new Promise((resolve) => setTimeout(resolve, 0));
+
     const sampleSize = Math.pow(10, power);
 
     console.log(

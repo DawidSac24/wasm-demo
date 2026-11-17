@@ -21,11 +21,17 @@ To build and run this project, you will need the following toolchains installed:
    npm install
    ```
 
-2. **Run and build the project:**
+2. **Run and build the project (Browser):**
    ```bash
    npm run dev
    ```
-   this compiles the rust code to webassembly and runs vite
+   This compiles the Rust code to WebAssembly and runs Vite (running up to $10^8$ iterations by default in the browser).
+
+3. **Run the benchmark in the terminal (Node.js):**
+   ```bash
+   npm run benchmark       # Defaults to 8 steps (up to 10^8 iterations)
+   npm run benchmark 9     # Runs 9 steps (up to 10^9 iterations)
+   ```
 
 **Compile rust individually:**
 
